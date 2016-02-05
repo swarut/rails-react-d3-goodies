@@ -25,7 +25,7 @@ var BarChart = React.createClass({
     var svg = d3.selectAll('#bar-chart')
       .append('svg')
       .attr('width', width)
-      .attr('height', height);
+      .attr('height', height * 2);
 
     svg.selectAll('rect')
       .data(dataset)
@@ -56,7 +56,19 @@ var BarChart = React.createClass({
     svg.selectAll('rect')
     .on('mouseover', function(){
       d3.select(this)
-        .attr('fill', 'pink');
+        .attr('fill', 'pink')
+        .append("text");
+        // .text(function(d) {
+        //   return d;
+        // })
+        // .attr("font-family", "sans-serif")
+        // .attr("font-size", "11px")
+        // .attr('x', function(d, i) {
+        //   return ((width/dataset.length) * i) + (width/dataset.length/2) ;
+        // })
+        // .attr('y', function(d, i) {
+        //   return height - d - 4;
+        // });
     })
     .on('mouseout', function(){
       d3.select(this)
